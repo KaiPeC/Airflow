@@ -1,19 +1,20 @@
 # coding: utf-8
 import json
-import pyspark.sql.functions as sf
+# import pyspark.sql.functions as sf
 import requests
-from pyspark import SparkConf, SparkContext
-from pyspark.sql import SparkSession
+# from pyspark import SparkConf, SparkContext
+# from pyspark.sql import SparkSession
 
-conf = SparkConf()
-sc = SparkContext(conf=conf)
-ss = SparkSession.builder.getOrCreate()
+# conf = SparkConf()
+# sc = SparkContext(conf=conf)
+# ss = SparkSession.builder.getOrCreate()
 
 
 
 import json 
 def read_creds(caminho:str):
-    f = open('/opt/airflow/scripts/creds/'+caminho)
+    #f = open('/opt/airflow/scripts/creds/'+caminho)
+    f = open('./git_data_engineer_kaique/Airflow-docker/scripts/creds/zendesk_main_creds.json')
     variables = json.load(f)
     return variables
 variables = read_creds('zendesk_main_creds.json')
