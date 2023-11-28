@@ -13,7 +13,7 @@ ss = SparkSession.builder.getOrCreate()
 
 import json 
 def read_creds(caminho:str):
-    f = open('creds/'+caminho)
+    f = open('/opt/airflow/creds/'+caminho)
     variables = json.load(f)
     return variables
 variables = read_creds('zendesk_main_creds.json')
