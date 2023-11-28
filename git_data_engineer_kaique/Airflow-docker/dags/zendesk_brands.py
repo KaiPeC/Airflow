@@ -17,7 +17,7 @@ default_args = {
         'retry_delay': timedelta(minutes=5),
 }
 
-dag = DAG('brands_zendesk', default_args=default_args)
+dag = DAG('brands_zendesk', default_args=default_args,schedule_interval="05 10-21/5 * * 1-6",)
 
 pokelist = BashOperator(
     task_id = "pokelist",
