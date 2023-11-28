@@ -31,39 +31,39 @@ headers = {
 response = requests.request("GET", URL, headers=headers)
 
 body_list = json.loads(response.content.decode('utf-8'))
-body = body_list['brands']
+# body = body_list['brands']
+
+print(body_list)
+# # Documentation fields
+# name_fields = [
+#     'url',
+#     'id',
+#     'name',
+#     'brand_url',
+#     'subdomain',
+#     'has_help_center',
+#     'help_center_state',
+#     'active',
+#     'default',
+#     'is_deleted',
+#     'logo',
+#     'signature_template',
+#     'created_at',
+#     'updated_at',
+# ]
+
+# # Dataframe create
+# df = sc.parallelize(body).map(lambda x: json.dumps(x))
+# df = ss.read.json(df)
+# df = (
+#     df.select(name_fields)
+#     .fillna('')
+#     .withColumn("logo", sf.col("logo").cast("string"))
+# )
 
 
-# Documentation fields
-name_fields = [
-    'url',
-    'id',
-    'name',
-    'brand_url',
-    'subdomain',
-    'has_help_center',
-    'help_center_state',
-    'active',
-    'default',
-    'is_deleted',
-    'logo',
-    'signature_template',
-    'created_at',
-    'updated_at',
-]
+# namespace,dataset='zendesk','brands'
 
-# Dataframe create
-df = sc.parallelize(body).map(lambda x: json.dumps(x))
-df = ss.read.json(df)
-df = (
-    df.select(name_fields)
-    .fillna('')
-    .withColumn("logo", sf.col("logo").cast("string"))
-)
-
-
-namespace,dataset='zendesk','brands'
-
-df.write.parquet(
-    "/opt/airflow/scripts/bucket/"+namespace+"/"+"brands"
-)
+# df.write.parquet(
+#     "/opt/airflow/scripts/bucket/"+namespace+"/"+"brands"
+# )
