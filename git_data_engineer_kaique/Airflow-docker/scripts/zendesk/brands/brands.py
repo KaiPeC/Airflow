@@ -30,10 +30,10 @@ headers = {
 # Executa o Request na API
 response = requests.request("GET", URL, headers=headers)
 
-body_list = json.loads(response.content.decode('utf-8'))
+# body_list = json.loads(response.content.decode('utf-8'))
 # body = body_list['brands']
 
-print(body_list)
+print(response)
 # # Documentation fields
 # name_fields = [
 #     'url',
